@@ -4,6 +4,7 @@
     --altMainColor: #1787e0;
     --mainTranstionDuration: 0.3s;
     --mainPadding: 100px;
+    --sectionBackground: #ececec;
 }
 /* End Variables */
 /* Start Global Rules */
@@ -378,6 +379,51 @@ a {
     animation: moving-arrow 0.5s linear infinite;
 }
 /* End Articles */
+/* Start Gallery */
+.gallery {
+    padding-top: var(--mainPadding);
+    padding-bottom: var(--mainPadding);
+    position: relative;
+    background-color: #ececec;
+}
+.gallery .container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 40px;
+}
+.gallery .box {
+    padding: 15px;
+    background-color: white;
+    box-shadow: 0 12px 20px 0 rgb(0 0 0 / 13%);
+    box-shadow: 0 2px 4px 0 rgb(0 0 0 / 12%);
+}
+.gallery .box .image {
+    position: relative;
+    overflow: hidden;
+}
+.gallery .box .image::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(255, 255, 255, 0.2);
+    width: 10px;
+    height: 10px;
+    opacity: 0;
+    z-index: 2;
+}
+.gallery .box .image:hover::before {
+    animation: flashing 0.7s;
+}
+.gallery .box .image img {
+    width: 100%;
+    transition: var(--mainTranstionDuration);
+}
+.gallery .box .image:hover img {
+    transform: rotate(5deg) scale(1.1);
+}
+/* End Gallery */
 /* Start Animation */
 @keyframes up-and-down {
     0%, 100% {
@@ -424,6 +470,16 @@ a {
 @keyframes moving-arrow {
     100% {
         transform: translateX(10px);
+    }
+}
+@keyframes flashing {
+    0%, 40% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        width: 200%;
+        height: 200%;
     }
 }
 /* End Animation */
