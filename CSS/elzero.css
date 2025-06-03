@@ -12,8 +12,6 @@
     box-sizing: border-box;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
-    padding: 0;
-    margin: 0;
 }
 html {
     scroll-behavior: smooth;
@@ -147,6 +145,7 @@ a {
     padding: 0 30px;
     transition: var(--mainTranstionDuration);
     overflow: hidden;
+    font-size: 18px;
 }
 @media (max-width: 767px) {
     .header .main-nav > li > a {
@@ -573,7 +572,7 @@ a {
 }
 .testimonials .box img {
     position: absolute;
-    top: -50px;
+    top: -30px;
     right: -10px;
     width: 100px;
     height: 100px;
@@ -601,6 +600,99 @@ a {
     margin-top: 10px;
 }
 /* End Testimonials */
+/* Start Team */
+.team {
+  padding-top: var(--mainPadding);
+  padding-bottom: var(--mainPadding);
+  position: relative;
+}
+.team .container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 30px;
+}
+.team .box {
+  position: relative;
+}
+.team .box::before,
+.team .box::after {
+  content: "";
+  background-color: #f3f3f3;
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 100%;
+  border-radius: 10px;
+  transition: var(--mainTranstionDuration);
+}
+.team .box::before {
+  width: calc(100% - 60px);
+  z-index: -2;
+}
+.team .box::after {
+  z-index: -1;
+  background-color: #e4e4e4;
+  width: 0;
+}
+.team .box:hover::after {
+  width: calc(100% - 60px);
+} 
+.team .box .data {
+    display: flex;
+    align-items: center;
+    padding-top: 60px;
+}
+.team .box .data img {
+    width: calc(100% - 60px);
+    transition: var(--mainTranstionDuration);
+    border-radius: 10px;
+}
+.team .box:hover img {
+    filter: grayscale(100%);
+}
+.team .box .data .social {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 60px;   
+    gap: 20px;
+}
+.team .box .data .social a {
+    width: 60px;
+    height: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.team .box .data .social i {
+    color: #777;
+    transition: var(--mainTranstionDuration);
+}
+.team .box .data .social a:hover i {
+    color: var(--mainColor);
+}
+.team .box .info {
+    padding-left: 75px;
+}
+.team .box .info h3 {
+    font-size: 22px;
+    margin-bottom: 0;
+    transition: var(--mainTranstionDuration);
+    color: var(--mainColor);
+}
+.team .box:hover .info h3 {
+    color: #777;
+}
+.team .box .info p {
+    margin-top: 10px;
+    margin-bottom: 20px;
+    color: #777;
+    transition: var(--mainTranstionDuration);
+}
+.team .box:hover .info p {
+    color: var(--mainColor);
+} 
+/* End Team */
 /* Start Animation */
 @keyframes up-and-down {
     0%, 100% {
