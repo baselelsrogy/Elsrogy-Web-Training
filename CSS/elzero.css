@@ -954,6 +954,11 @@ a {
 .events .info {
     flex: 1;
 }
+@media (max-width: 1225px) {
+    .events .dots {
+        display: none;
+    }
+}
 .events .info .time {
     display: flex;
     margin: 20px auto;
